@@ -11,6 +11,13 @@ void treversal(node *ptr){
         ptr=ptr->next;
     }
 }
+node *deleteAtBegining(node *head){
+    node *temp;
+    temp=head;
+    head=head->next;
+    free(temp);
+    return head;
+}
 int main(){
     node *head,*newnode,*temp;
     head=0;
@@ -32,6 +39,9 @@ int main(){
         scanf("%d",&choice);
     }
     printf("Data stored are: \n");
+    treversal(head);
+    head=deleteAtBegining(head);
+    printf("After deleting the begining node\n");
     treversal(head);
     return 0;
 }
