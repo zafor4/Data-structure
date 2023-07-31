@@ -18,9 +18,34 @@ node *deleteAtBegining(node *head){
     free(temp);
     return head;
 }
+node *deleteAtEnd(node *head){
+    node *temp=head;
+    node *ptr;
+    while (temp->next->next!=NULL){
+        temp=temp->next;
+    }
+    ptr=temp->next->next;
+    temp->next=NULL;
+    free(ptr);
+
+    return head;
+}
+node *deleteFromMiddle(node *head ,int position){
+    node *temp=head;
+    node *ptr;
+    for (int i=0;i<position;i++){
+        if (temp->next!=NULL){
+            temp=temp->next;
+        }
+    }
+    ptr=temp->next;
+    temp->next=temp->next->next;
+    free(ptr);
+    return head;
+}
 int main(){
     node *head,*newnode,*temp;
-    head=0;
+    head=NULL;
     int choice;
     while(choice){
         newnode=(node *)malloc(sizeof(node));
@@ -42,6 +67,16 @@ int main(){
     treversal(head);
     head=deleteAtBegining(head);
     printf("After deleting the begining node\n");
+    treversal(head);
+    head=deleteAtEnd(head);
+    printf("After deleting the last node\n");
+    treversal(head);
+    printf("Which position of value you want to delete : ");
+    int position;
+    scanf("%d",&position);
+    position=position-1;
+    head=deleteFromMiddle(head,position);
+    printf("After deleting a node from middle\n");
     treversal(head);
     return 0;
 }
