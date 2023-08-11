@@ -24,6 +24,7 @@ node *createNode(){
 
 }
 //preorder treversal.
+// root-left-right.
 void preorder(node *root){
     if (root==0){
         return;
@@ -33,15 +34,17 @@ void preorder(node *root){
     preorder(root->right);
 
 }
-void interorder(node *root){
+//left -root-right
+void inorder(node *root){
         if (root==0){
         return;
     }
     
-    interorder(root->left);
+    inorder(root->left);
     printf("%d\t",root->data);
-    interorder(root->right);
+    inorder(root->right);
 }
+//left right root.
 void postorder(node *root){
         if (root==0){
         return;
@@ -59,7 +62,7 @@ int main(){
 printf("Traversed preorder\n");
     preorder(root);
     printf("\nTreversed interorder\n");
-    interorder(root);
+    inorder(root);
     printf("\nTreversed postorder\n");
     postorder(root);
 
