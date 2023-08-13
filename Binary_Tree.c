@@ -59,7 +59,7 @@ int main(){
     node *root;
     root=0;
     root=createNode();
-printf("Traversed preorder\n");
+    printf("Traversed preorder\n");
     preorder(root);
     printf("\nTreversed interorder\n");
     inorder(root);
