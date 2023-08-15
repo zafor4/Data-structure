@@ -40,6 +40,28 @@ int isBST(node *root){
     else 
     return 1;
 }
+void insert(node *root,int key){
+    node *prev=NULL;
+    while(root!=NULL){
+        prev=root;
+        if (key==root->data){
+            return ;
+        }
+        else if (key<root->data){
+            root=root->left;
+        }
+        else {
+            root=root->right;
+        }
+    }
+     node *new=createnode(7);
+    if (key<prev->data){
+        prev->left=new;
+    }
+    else {
+        prev->right=new;
+    }
+}
 
 int main(){
     node *p=createnode(5);
@@ -52,7 +74,9 @@ int main(){
     p->right=p2;
     p1->left=p3;
     p1->right=p4;
+inorder(p);
+insert(p,7);
+printf("\n%d",p->right->right->data);
 
-    inorder(p);
     return 0;
 }
