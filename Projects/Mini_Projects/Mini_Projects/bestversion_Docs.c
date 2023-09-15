@@ -120,6 +120,7 @@ node * update_Database(node *head){
 
     strcpy(temp->name, name);
     temp->salary=salary;
+    return head;
 
 }
 
