@@ -10,6 +10,7 @@ typedef struct Node node;
 node *trash;
 int indx;
 
+void displayList(node *takehead);
 
 
 node* createlist( const char name[], double salary,node *next) {
